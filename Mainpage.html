@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Système - Chat</title>
+    <link rel="stylesheet" href="Mainpage.css">
+</head>
+
+<body>
+    <div class="container">
+        <img src="background.png" alt="" class="background-image">
+        <div class="content">
+            <h1>Discover the disease of your animal !</h1>
+            <div class="chat-container">
+                <img src="logo.JPG" alt="logo-symptom">
+                <hr>
+                <div class="chat-box" id="chat-box">
+                    <div class="chat-message">
+                        <p id="uniq">Bonjour! Je suis l'Expert Système pour détecter les maladies des animaux. Répondez par oui ou non aux questions suivantes :</p>
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="user-input" placeholder="Répondre par Oui ou Non...">
+                    <button onclick="sendResponse()">Envoyer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="Mainpage.js"></script>
+</body>
+
+</html>
