@@ -1,45 +1,55 @@
 var symptoms = [
-    "Votre animal tousse-t-il ?",
-    "Votre animal a-t-il de la fièvre ?",
-    "Votre animal a-t-il des vomissements ?",
-    "Votre animal a-t-il de la diarrhée ?",
-    "Votre animal a-t-il des éternuements fréquents ?",
-    "Votre animal a-t-il des difficultés à respirer ?",
-    "Votre animal a-t-il perdu l'appétit ?"
+  "Does your pet have fever?",
+  "Is your pet coughing?",
+  "Is your pet vomiting?",
+  "Is your pet experiencing diarrhea?",
+  "Is your pet limping or showing lameness?",
+  "Does your pet have swelling in joints?",
+  "Is your pet lethargic?",
+  "Is your pet experiencing loss of appetite?",
+  "Is your pet excessively thirsty?",
+  "Is your pet urinating excessively?",
+  "Does your pet have redness in eyes?",
+  "Does your pet have discharge in eyes?",
+  "Is your pet itching?",
+  "Is your pet experiencing hair loss?",
+  "Is your pet wheezing?",
+  "Is your pet experiencing difficulty breathing?",
 ];
 
 var currentQuestionIndex = 0;
 
 function sendResponse() {
-    var userInput = document.getElementById("user-input").value.toLowerCase();
-    var chatBox = document.getElementById("chat-box");
+  var userInput = document.getElementById("user-input").value.toLowerCase();
+  var chatBox = document.getElementById("chat-box");
 
-    // l'ajout la réponse de user a la fenêtre de chat
-    var userMessage = document.createElement("div");
-    userMessage.className = "chat-message user";
-    userMessage.innerHTML = "<p>" + userInput + "</p>";
-    chatBox.appendChild(userMessage);
+  // Add user's response to the chat window
+  var userMessage = document.createElement("div");
+  userMessage.className = "chat-message user";
+  userMessage.innerHTML = "<p>" + userInput + "</p>";
+  chatBox.appendChild(userMessage);
 
-    // Efface l'entrée utilisateur
-    document.getElementById("user-input").value = "";
+  // Clear user input
+  document.getElementById("user-input").value = "";
 
-    // Affiche la réponse de l'Expert Système
-    if (currentQuestionIndex < symptoms.length - 1) {
-        currentQuestionIndex++;
-        setTimeout(function() {
-            var expertMessage = document.createElement("div");
-            expertMessage.className = "chat-message expert";
-            expertMessage.innerHTML = "<p>" + symptoms[currentQuestionIndex] + "</p>";
-            chatBox.appendChild(expertMessage);
-            chatBox.scrollTop = chatBox.scrollHeight;
-        }, 1000); // hna simule un temps de traitement
-    } else {
-        setTimeout(function() {
-            var expertMessage = document.createElement("div");
-            expertMessage.className = "chat-message expert";
-            expertMessage.innerHTML = "<p>Résultat de la maladie: Fièvre du Nil Occidental</p>"; // hna ysimiler résultat de la maladie
-            chatBox.appendChild(expertMessage);
-            chatBox.scrollTop = chatBox.scrollHeight;
-        }, 1000); // w hna simile un temps de traitement
-    }
+  // Display Expert System's response
+  if (currentQuestionIndex < symptoms.length - 1) {
+    currentQuestionIndex++;
+    setTimeout(function () {
+      var expertMessage = document.createElement("div");
+      expertMessage.className = "chat-message expert";
+      expertMessage.innerHTML = "<p>" + symptoms[currentQuestionIndex] + "</p>";
+      chatBox.appendChild(expertMessage);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }, 1000); // Simulate processing time
+  } else {
+    setTimeout(function () {
+      var expertMessage = document.createElement("div");
+      expertMessage.className = "chat-message expert";
+      expertMessage.innerHTML =
+        "<p>Disease Result: - GastrointestinalIssues : Gastrointestinal issues refer to problems with the digestive system, - Systemic illness refers to illnesses affecting multiple systems of the body - Asthma is a chronic respiratory condition characterized by airway inflammation -Systemic illness refers to illnesses affecting multiple systems of the body.</p>"; // Simulating disease result
+      chatBox.appendChild(expertMessage);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }, 1000); // Simulate processing time
+  }
 }
